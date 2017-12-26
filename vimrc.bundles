@@ -17,7 +17,7 @@ filetype off " required! turn off
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
     " let g:bundle_groups=['python', 'javascript', 'golang', 'php', 'ruby', 'shell', 'markdown', 'html', 'css', 'less', 'coffeescript', 'tmux', 'json', 'beta', 'deoplete']
-    let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta', "deoplete"]
+    let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta', "golang"]
 endif
 
 " ----------------------------------------------------------------------------
@@ -155,6 +155,17 @@ Plug 'kana/vim-textobj-entire'
 " 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块
 Plug 'kana/vim-textobj-indent'
 
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+      !python3 ./install.py --clang-completer
+  endif
+endfunction
+
+
 if count(g:bundle_groups, 'deoplete')
     " deoplete
     " asynchronous completion framework for neovim/Vim8
@@ -170,7 +181,7 @@ else
     " 代码自动补全
     " 迄今为止用到的最好的自动VIM自动补全插件
     " 重启 :YcmRestartServer
-    Plug 'Valloric/YouCompleteMe'
+    Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM')}
 endif
 
 if count(g:bundle_groups, 'tmux')
@@ -191,12 +202,12 @@ endif
 
 if count(g:bundle_groups, 'golang')
     if count(g:bundle_groups, 'deoplete')
-        Plug 'zchee/deoplete-go', {'for': 'go'}
+        Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make'}
     endif
     " 1. vim a.go
     " 2. :GoInstallBinaries
     " vimgo  https://github.com/fatih/vim-go
-    Plug 'fatih/vim-go', {'for': 'go', 'do': 'make'}
+    Plug 'fatih/vim-go', {'for': 'go'}
 endif
 
 
