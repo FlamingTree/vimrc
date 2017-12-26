@@ -2,7 +2,7 @@
 set wrap 
 
 
-# neovim 设置 Comamnd-[/] 跳转
+" neovim 设置 Comamnd-[/] 跳转
 if has('nvim')
     map <D-[> <C-o>
     map <D-]> <C-o>
