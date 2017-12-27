@@ -1,9 +1,9 @@
 " 折行显示
 set wrap 
 
-
-" neovim 设置 Comamnd-[/] 跳转
-if has('nvim')
+" macvim 设置 Comamnd-[/] 跳转
+" neovim 似乎也支持，但无效
+if has('mvim')
     map <D-[> <C-o>
     map <D-]> <C-i>
 endif
