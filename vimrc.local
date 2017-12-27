@@ -1,5 +1,8 @@
 " 折行显示
-set wrap 
+set wrap
+
+" 循环搜索
+set wrapscan
 
 " macvim 设置 Comamnd-[/] 跳转
 " neovim 似乎也支持，但无效
