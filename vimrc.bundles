@@ -722,6 +722,8 @@ endif
     let g:airline_symbols.branch = '⎇'
     " 是否打开tabline
     " let g:airline#extensions#tabline#enabled = 1
+    " 集成 ale
+    " let g:airline#extensions#ale#enabled = 1
 " }}}
 
 
@@ -894,7 +896,9 @@ endif
     let g:go_highlight_structs = 1
     " let g:go_highlight_types = 1
     " 高亮相同名字的变量
-    let g:go_auto_sameids = 1
+    " let g:go_auto_sameids = 1
+    " 自动显示类型信息
+    let g:go_auto_type_info = 1
 
     let g:go_fmt_fail_silently = 1
     " format with goimports instead of gofmt
