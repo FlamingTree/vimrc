@@ -9,4 +9,9 @@ set wrapscan
 if has('mvim')
     map <D-[> <C-o>
     map <D-]> <C-i>
+
+    " nnoremap <D-S-[> :tabprevious<CR>
+    " nnoremap <D-S-]> :tabnext<CR>
+    " inoremap <D-S-[> <Esc>:tabprevious<CR>i
+    " inoremap <D-S-]> <Esc>:tabnext<CR>i
 endif
