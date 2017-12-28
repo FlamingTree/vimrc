@@ -4,9 +4,9 @@ set wrap
 " 循环搜索
 set wrapscan
 
-" macvim 设置 Comamnd-[/] 跳转
+" macvim/neovim 设置 Comamnd-[/] 跳转
 " neovim 似乎也支持，但无效
-if has('mvim')
+if has('mvim') || has('nvim')
     map <D-[> <C-o>
     map <D-]> <C-i>
 
